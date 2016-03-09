@@ -11,5 +11,8 @@
 //Use this file for any SASS functions or mixins
 @import "base/mixins";
 
+//Use this file for any global changes
+@import "base/global";
+
 //Import all of your SASS component files here
 @import "components/ComponentName";

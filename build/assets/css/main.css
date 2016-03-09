@@ -86,6 +86,14 @@ table {
   *zoom: 1; }
 
 /*
+  Base
+  ===============================================
+  Use this file for any base changes ie body colour etc
+*/
+body {
+  background-color: rebeccapurple; }
+
+/*
   ComponentName
   ===============================================
   Component description to help your fellow devs

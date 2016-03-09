@@ -10,8 +10,15 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     // Used for injecting headers into generated files
     header = require('gulp-header'),
-    //Used for HTML templates
-    fileinclude = require('gulp-file-include');
+    //Nunjucks for HTML templating
+    nunjucks = require('gulp-nunjucks'),
+    //Tidy up the HTML output
+    prettify = require('gulp-prettify'),
+    //Browser sync so you don't have to keep hitting that refresh button
+    browserSync = require('browser-sync').create(),
+    //Watch files and run tasks on changes
+    watch = require('gulp-watch');
+
 
 //Place to store all path/globs required for tooling
 var paths = {
@@ -25,7 +32,8 @@ var paths = {
   },
   html: {
     src: './src/*.html',
-    dest: './build/'
+    dest: './build/',
+    watch : ['./src/*.html', './src/html-partials/*.html']
   }
 };
 
@@ -38,7 +46,7 @@ var banner = ['/**',
 
 
 //Set the default task for Gulp
-gulp.task('default', ['sass', 'js', 'html']);
+gulp.task('default', ['sass', 'js', 'html', 'watch', 'browser-sync']);
 
 //Render SASS to CSS
 gulp.task('sass', function(cb) {
@@ -49,9 +57,14 @@ gulp.task('sass', function(cb) {
     }))
   .pipe(sass())
   .pipe(header(banner))
-  .pipe(gulp.dest(paths.sass.dest));
+  .pipe(gulp.dest(paths.sass.dest))
+  .pipe(browserSync.stream());
 
 });
+
+// create a task that ensures the `js` task is complete before
+// reloading browsers
+gulp.task('js-watch', ['js'], browserSync.reload);
 
 //Concat all JS into one file
 gulp.task('js', function(cb) {
@@ -62,9 +75,14 @@ gulp.task('js', function(cb) {
     }))
   .pipe(concat('main.js'))
   .pipe(header(banner))
-  .pipe(gulp.dest(paths.js.dest));
+  .pipe(gulp.dest(paths.js.dest))
+  .pipe(browserSync.stream());
 
 });
+
+// create a task that ensures the `html` task is complete before
+// reloading browsers
+gulp.task('html-watch', ['html'], browserSync.reload);
 
 //Compile HTML files
 gulp.task('html', function() {
@@ -72,11 +90,27 @@ gulp.task('html', function() {
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file'
-    }))
-    .pipe(gulp.dest(paths.html.dest));
+    .pipe(nunjucks.compile())
+    .pipe(prettify({indent_size: 2}))
+    .pipe(gulp.dest(paths.html.dest))
+    .pipe(browserSync.stream());
+});
+
+//Watch for file changes and run tasks accordigly
+gulp.task('watch', function(cb) {
+
+  gulp.watch( paths.sass.src, ['sass']);
+  gulp.watch( paths.js.src, ['js-watch']);
+  gulp.watch( paths.html.watch, ['html-watch']);
+
+});
+
+gulp.task('browser-sync', function() {
+  browserSync.init({
+      server: {
+          baseDir: "./build/"
+      }
+  });
 });
 
 
