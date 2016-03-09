@@ -51,7 +51,12 @@ var banner = ['/**',
 
 
 //Set the default task for Gulp
-gulp.task('default', ['sass', 'js', 'html', 'watch', 'browser-sync']);
+gulp.task('default', ['clean']);
+
+//Clean out generated files
+gulp.task('clean', ['sass', 'js', 'html', 'watch', 'browser-sync'], function(cb) {
+  return del(paths.html.dest);
+});
 
 //Render SASS to CSS
 gulp.task('sass', function(cb) {
