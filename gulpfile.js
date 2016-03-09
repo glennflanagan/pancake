@@ -51,10 +51,21 @@ var banner = ['/**',
 
 
 //Set the default task for Gulp
-gulp.task('default', ['clean']);
+gulp.task('default', ['build-assets-watch']);
+gulp.task('start-asset-watch', ['build-assets', 'watch', 'browser-sync']);
+gulp.task('build-assets', ['sass', 'js', 'html']);
+
+
+gulp.task('build', ['clean'], function() {
+  gulp.start('build-assets');
+});
+
+gulp.task('build-assets-watch', ['clean'], function() {
+  gulp.start('start-asset-watch');
+});
 
 //Clean out generated files
-gulp.task('clean', ['sass', 'js', 'html', 'watch', 'browser-sync'], function(cb) {
+gulp.task('clean', function(cb) {
   return del(paths.html.dest);
 });
 
