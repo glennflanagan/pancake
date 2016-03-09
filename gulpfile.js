@@ -17,7 +17,12 @@ var gulp = require('gulp'),
     //Browser sync so you don't have to keep hitting that refresh button
     browserSync = require('browser-sync').create(),
     //Watch files and run tasks on changes
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    //Helper for Vinyl Files
+    vinylPaths = require('vinyl-paths'),
+    del = require('del'),
+    path = require('path'),
+    vfs = require('vinyl-fs');
 
 
 //Place to store all path/globs required for tooling
@@ -101,7 +106,12 @@ gulp.task('watch', function(cb) {
 
   gulp.watch( paths.sass.src, ['sass']);
   gulp.watch( paths.js.src, ['js-watch']);
-  gulp.watch( paths.html.watch, ['html-watch']);
+
+  // use gulp.watch for delete
+
+  watch(paths.html.watch, function() {
+      gulp.start('html-watch');
+  });
 
 });
 
