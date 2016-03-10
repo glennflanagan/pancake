@@ -43,6 +43,10 @@ var paths = {
   fonts: {
     src: './src/assets/fonts/*.{eot,svg,ttf,woff,woff2}',
     dest: './build/assets/fonts/'
+  },
+  img: {
+    src: './src/assets/img/*.{jpg,svg,jpeg,gif,png}',
+    dest: './build/assets/img/'
   }
 };
 
@@ -57,7 +61,7 @@ var banner = ['/**',
 //Set the default task for Gulp
 gulp.task('default', ['build-assets-watch']);
 gulp.task('start-asset-watch', ['build-assets', 'watch', 'browser-sync']);
-gulp.task('build-assets', ['sass', 'js', 'html', 'fonts']);
+gulp.task('build-assets', ['sass', 'js', 'html', 'fonts', 'images']);
 
 
 gulp.task('build', ['clean'], function() {
@@ -68,7 +72,7 @@ gulp.task('build-assets-watch', ['clean'], function() {
   gulp.start('start-asset-watch');
 });
 
-//Clean out generated files
+//Clean out generated files - This will tidy up your build folder if you've deleted items from source.
 gulp.task('clean', function(cb) {
   return del(paths.html.dest);
 });
@@ -130,6 +134,16 @@ gulp.task('fonts', function(cb){
 
 });
 
+gulp.task('images-watch', ['images'], browserSync.reload);
+//Copy imgs to build folder
+gulp.task('images', function(cb){
+
+  return gulp.src(paths.img.src)
+  .pipe(gulp.dest(paths.img.dest));
+
+});
+
+
 //Watch for file changes and run tasks accordigly
 gulp.task('watch', function(cb) {
 
@@ -142,6 +156,10 @@ gulp.task('watch', function(cb) {
 
   watch(paths.fonts.src, function() {
       gulp.start('fonts-watch');
+  });
+
+  watch(paths.img.src, function() {
+      gulp.start('images-watch');
   });
 
 });
