@@ -6,8 +6,10 @@
 
 
 .Title {
+  font-size: rem(28px);
+  line-height: rem(38px);
   text-align: center;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   margin-top: rem(40px);
   margin-bottom: rem(40px);
 }

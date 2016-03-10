@@ -629,8 +629,9 @@ body {
   Major headings
 */
 .Title {
+  font-size: 1.75rem;
+  line-height: 2.375rem;
   text-align: center;
-  text-transform: uppercase;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem; }
 
@@ -639,5 +640,24 @@ body {
   ===============================================
   Three colums that explain what Pancake it
 */
-.ThreeUp .ThreeUp__icon {
-  font-size: 2.5rem; }
+.ThreeUp {
+  text-align: center; }
+  .ThreeUp .ThreeUp__icon {
+    font-size: 6.25rem;
+    color: RGB(140, 165, 150); }
+
+.ThreeUp__title {
+  font-size: 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-top: 2px dashed RGB(140, 165, 150);
+  border-bottom: 2px dashed RGB(140, 165, 150); }
+
+.ThreeUp__copy {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  padding: 1.25rem;
+  text-align: left; }
+  .ThreeUp__copy p {
+    margin-bottom: 0.625rem; }

@@ -7,10 +7,33 @@
 
 .ThreeUp {
 
+  text-align: center;
 
   //Only nested to overwite specificity of FontAwesome
   .ThreeUp__icon {
-    font-size: rem(40px);
+    font-size: rem(100px);
+    color: $color_mid;
   }
 
+}
+
+.ThreeUp__title {
+  font-size: rem(20px);
+  margin-top: rem(20px);
+  padding-top: rem(20px);
+  padding-bottom: rem(20px);
+  border-top: 2px dashed $color_mid;
+  border-bottom: 2px dashed $color_mid;
+}
+
+
+.ThreeUp__copy {
+  font-size: rem(14px);
+  line-height: rem(28px);
+  padding: rem(20px);
+  text-align: left;
+
+  p {
+    margin-bottom: rem(10px);
+  }
 }

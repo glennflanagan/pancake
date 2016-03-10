@@ -11,22 +11,40 @@
     <main class="container">
       <section class="row">
         <div class="col s12">
-          <h2 class="Title">Starter project for flat HTML, CSS and JavaScript developement.</h2>
+          <h2 class="Title">Gulp starter project for flat HTML, CSS and JavaScript developement.</h2>
           <img class="HeroImage" src="assets/img/pancake.jpg" alt="Mmmm. Pancakes.">
         </div>
-        <div class="col s4">
+        <div class="col s12 m4">
           <article class="ThreeUp">
             <i class="ThreeUp__icon fa fa-hand-paper-o"></i>
+            <h3 class="ThreeUp__title">HTML</h3>
+            <div class="ThreeUp__copy">
+              <p>Pancake uses Nunjucks to compile the HTML files.</p>
+              <p>Nunjucks allows you to separate your flat HTML files out into several partial files and compiles them down into the build folder.</p>
+              <p>Managing your HTML files this way allows you to reuse code and saves on time.</p>
+            </div>
           </article>
         </div>
-        <div class="col s4">
+        <div class="col s12 m4">
           <article class="ThreeUp">
             <i class="ThreeUp__icon fa fa-hand-scissors-o"></i>
+            <h3 class="ThreeUp__title">CSS</h3>
+            <div class="ThreeUp__copy">
+              <p>CSS is generated from SASS.</p>
+              <p>Using SASS allows you to use functions and mixins in your styles for speed of developement. The SASS files also go through Autoprefixer so you never have to worry about remembering to add those pesky vendor prefixes.</p>
+              <p>Pancake is also set up with a version of the Materialize grid but this is completely optional, or you can implement your own.</p>
+              <p>By default the project is set up using a version of the Block Element Modifier methodolgy, but you can style your SASS code however you like.</p>
+            </div>
           </article>
         </div>
-        <div class="col s4">
+        <div class="col s12 m4">
           <article class="ThreeUp">
             <i class="ThreeUp__icon fa fa-hand-rock-o"></i>
+            <h3 class="ThreeUp__title">JavaScript</h3>
+            <div class="ThreeUp__copy">
+              <p>Pancake's JavaScript is set up to combine all JavaScript files into one main file. It is also set up to use the Revealing Module Pattern. This is a great way to split out your JavaScript code to make it easier to maintain.</p>
+              <p>Your JavaScript will also be run through JSHint to make sure your code correct and clean. You'll also be notified immediately if you save a file with an error.</p>
+            </div>
           </article>
         </div>
       </section>
