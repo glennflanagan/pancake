@@ -1,0 +1,16 @@
+/*
+  Three up
+  ===============================================
+  Three colums that explain what Pancake it
+*/
+
+
+.ThreeUp {
+
+
+  //Only nested to overwite specificity of FontAwesome
+  .ThreeUp__icon {
+    font-size: rem(40px);
+  }
+
+}

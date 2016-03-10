@@ -10,18 +10,24 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     // Used for injecting headers into generated files
     header = require('gulp-header'),
-    //Nunjucks for HTML templating
+    // Nunjucks for HTML templating
     nunjucks = require('gulp-nunjucks'),
-    //Tidy up the HTML output
+    // Tidy up the HTML output
     prettify = require('gulp-prettify'),
-    //Browser sync so you don't have to keep hitting that refresh button
+    // Browser sync so you don't have to keep hitting that refresh button
     browserSync = require('browser-sync').create(),
-    //Watch files and run tasks on changes
+    // Watch files and run tasks on changes
     watch = require('gulp-watch'),
-    //Helper for deleting Files
+    // Helper for deleting Files
     del = require('del'),
-    //Sanitizes your CSS and adds required vendor prefixes.
-    autoprefixer = require('gulp-autoprefixer');
+    // Sanitizes your CSS and adds required vendor prefixes.
+    autoprefixer = require('gulp-autoprefixer'),
+    // Used for hinting your dodgy JS code.
+    jshint = require('gulp-jshint'),
+    // Use to nicley style the JS hints
+    stylish = require('jshint-stylish'),
+    map = require('map-stream'),
+    notify = require('gulp-notify');
 
 
 //Place to store all path/globs required for tooling
@@ -109,12 +115,38 @@ gulp.task('js', function(cb) {
   .pipe(plumber({
       errorHandler: onError
     }))
+  //Lint the JS Code
+  .pipe(jshint('.jshintrc', {fail: true}))
+  .pipe(jshint.reporter(stylish))
+  .pipe(notify(function (file) {
+      if (file.jshint.success) {
+        // Don't show something if success
+        return false;
+      }
+
+      var errors = file.jshint.results.map(function (data) {
+        if (data.error) {
+          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+        }
+      }).join("\n");
+      
+      gutil.beep();
+      return {
+        title: 'JSHint Fail',
+        message: file.relative + " (" + file.jshint.results.length + " errors)\n" + errors
+      };
+    }))
+
+  //Combine into one file
   .pipe(concat('main.js'))
   .pipe(header(banner))
   .pipe(gulp.dest(paths.js.dest))
+  //Reload the browser
   .pipe(browserSync.stream());
 
 });
+
+
 
 // create a task that ensures the `html` task is complete before
 // reloading browsers
@@ -187,6 +219,14 @@ gulp.task('browser-sync', function() {
 
 //function to run on any error
 var onError = function (err) {
+
+  var args = Array.prototype.slice.call(arguments);
+
+  notify.onError({
+    title: 'Compile Error',
+    message: '<%= error.message %>'
+  }).apply(this, args);
+
   gutil.beep();
   console.log(err);
   this.emit('end');

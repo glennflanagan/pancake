@@ -6,6 +6,8 @@ var namespace = namespace || {};
 
 namespace.module = (function () {
 
+  'use strict';
+
   function init() {
     console.log('%c Module loaded ', 'background: #222; color: #bada55');
   }
@@ -16,8 +18,11 @@ namespace.module = (function () {
 
 })();
 
+var namespace = namespace || {};
+
 (function () {
 
+  'use strict';
   //Init Modules
   namespace.module.init();
 
