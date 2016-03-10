@@ -52,7 +52,7 @@ var paths = {
     dest: './build/assets/fonts/'
   },
   img: {
-    src: './src/assets/img/*.{jpg,svg,jpeg,gif,png}',
+    src: './src/assets/img/**/*.{jpg,svg,jpeg,gif,png,ico,json,xml}',
     dest: './build/assets/img/'
   }
 };
@@ -129,7 +129,7 @@ gulp.task('js', function(cb) {
           return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
         }
       }).join("\n");
-      
+
       gutil.beep();
       return {
         title: 'JSHint Fail',
