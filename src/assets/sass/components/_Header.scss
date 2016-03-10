@@ -10,6 +10,8 @@
   color: $color_light;
   padding-top: rem(25px);
   padding-bottom: rem(25px);
+  border-bottom: 3px dashed $color_mid_dark;
+  background-clip: padding-box;
 }
 
 .Header__title {
@@ -18,4 +20,15 @@
   max-width: rem(280px);
   margin-left: auto;
   margin-right: auto;
+  animation: 1s spin;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
 }

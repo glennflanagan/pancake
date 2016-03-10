@@ -18,11 +18,10 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     //Watch files and run tasks on changes
     watch = require('gulp-watch'),
-    //Helper for Vinyl Files
-    vinylPaths = require('vinyl-paths'),
+    //Helper for deleting Files
     del = require('del'),
-    path = require('path'),
-    vfs = require('vinyl-fs');
+    //Sanitizes your CSS and adds required vendor prefixes.
+    autoprefixer = require('gulp-autoprefixer');
 
 
 //Place to store all path/globs required for tooling
@@ -51,6 +50,8 @@ var paths = {
     dest: './build/assets/img/'
   }
 };
+
+
 
 var banner = ['/**',
  '* This is a generated file',
@@ -87,6 +88,10 @@ gulp.task('sass', function(cb) {
       errorHandler: onError
     }))
   .pipe(sass())
+  .pipe(autoprefixer({
+    browsers: ['last 2 versions', 'IE 9', 'IE 10'],
+    cascade: false
+  }))
   .pipe(header(banner))
   .pipe(gulp.dest(paths.sass.dest))
   .pipe(browserSync.stream());

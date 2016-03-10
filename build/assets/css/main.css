@@ -50,8 +50,6 @@ table {
   border-spacing: 0; }
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 /*
@@ -128,14 +126,34 @@ body {
   background-color: RGB(22, 45, 58);
   color: RGB(252, 255, 244);
   padding-top: 1.5625rem;
-  padding-bottom: 1.5625rem; }
+  padding-bottom: 1.5625rem;
+  border-bottom: 3px dashed RGB(57, 88, 104);
+  background-clip: padding-box; }
 
 .Header__title {
   font-size: 2.5rem;
   text-align: center;
   max-width: 17.5rem;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  -webkit-animation: 1s spin;
+  animation: 1s spin; }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg); } }
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg); } }
 
 /*
   Footer
@@ -146,7 +164,9 @@ body {
   background-color: RGB(57, 88, 104);
   color: RGB(252, 255, 244);
   padding-top: 1.5625rem;
-  padding-bottom: 1.5625rem; }
+  padding-bottom: 1.5625rem;
+  border-top: 3px dashed RGB(22, 45, 58);
+  background-clip: padding-box; }
 
 .Footer__content {
   max-width: 60rem;

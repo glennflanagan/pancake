@@ -10,6 +10,8 @@
   color: $color_light;
   padding-top: rem(25px);
   padding-bottom: rem(25px);
+  border-top: 3px dashed $color_dark;
+  background-clip: padding-box;
 }
 
 .Footer__content {
