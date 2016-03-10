@@ -39,6 +39,10 @@ var paths = {
     src: './src/*.html',
     dest: './build/',
     watch : ['./src/*.html', './src/html-partials/*.html']
+  },
+  fonts: {
+    src: './src/assets/fonts/*.{eot,svg,ttf,woff,woff2}',
+    dest: './build/assets/fonts/'
   }
 };
 
@@ -53,7 +57,7 @@ var banner = ['/**',
 //Set the default task for Gulp
 gulp.task('default', ['build-assets-watch']);
 gulp.task('start-asset-watch', ['build-assets', 'watch', 'browser-sync']);
-gulp.task('build-assets', ['sass', 'js', 'html']);
+gulp.task('build-assets', ['sass', 'js', 'html', 'fonts']);
 
 
 gulp.task('build', ['clean'], function() {
@@ -117,16 +121,27 @@ gulp.task('html', function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('fonts-watch', ['fonts'], browserSync.reload);
+//Copy fonts to build folder
+gulp.task('fonts', function(cb){
+
+  return gulp.src(paths.fonts.src)
+  .pipe(gulp.dest(paths.fonts.dest));
+
+});
+
 //Watch for file changes and run tasks accordigly
 gulp.task('watch', function(cb) {
 
   gulp.watch( paths.sass.src, ['sass']);
   gulp.watch( paths.js.src, ['js-watch']);
 
-  // use gulp.watch for delete
-
   watch(paths.html.watch, function() {
       gulp.start('html-watch');
+  });
+
+  watch(paths.fonts.src, function() {
+      gulp.start('fonts-watch');
   });
 
 });

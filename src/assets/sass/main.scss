@@ -5,14 +5,17 @@
 // Any helper classes go here (Eg. the clearfix helper);
 @import "base/utils";
 
-//Use this files to store any SASS variables.
+// Setup Font-face
+@import "base/fonts";
+
+// Use this files to store any SASS variables.
 @import "base/variables";
 
-//Use this file for any SASS functions or mixins
+// Use this file for any SASS functions or mixins
 @import "base/mixins";
 
-//Use this file for any global changes
+// Use this file for any global changes
 @import "base/global";
 
-//Import all of your SASS component files here
+// Import all of your SASS component files here
 @import "components/ComponentName";
