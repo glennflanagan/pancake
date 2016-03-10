@@ -29,11 +29,13 @@ var gulp = require('gulp'),
 var paths = {
   sass: {
     src: './src/assets/sass/*.scss',
-    dest: './build/assets/css/'
+    dest: './build/assets/css/',
+    watch: ['./src/assets/sass/*.scss', './src/assets/sass/**/*.scss']
   },
   js: {
     src: ['./src/assets/js/modules/*.js', './src/assets/js/main.js'],
-    dest: './build/assets/js/'
+    dest: './build/assets/js/',
+    watch: ['./src/assets/js/**/*.js', './src/assets/js/*.js']
   },
   html: {
     src: './src/*.html',
@@ -147,8 +149,13 @@ gulp.task('images', function(cb){
 //Watch for file changes and run tasks accordigly
 gulp.task('watch', function(cb) {
 
-  gulp.watch( paths.sass.src, ['sass']);
-  gulp.watch( paths.js.src, ['js-watch']);
+  watch( paths.sass.watch, function() {
+    gulp.start('sass');
+  });
+
+  watch( paths.js.watch, function(){
+    gulp.start('js-watch');
+  });
 
   watch(paths.html.watch, function() {
       gulp.start('html-watch');

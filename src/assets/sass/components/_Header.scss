@@ -1,0 +1,21 @@
+/*
+  Header
+  ===============================================
+  Masthead at top of most pages
+*/
+
+
+.Header {
+  background-color: $color_dark;
+  color: $color_light;
+  padding-top: rem(25px);
+  padding-bottom: rem(25px);
+}
+
+.Header__title {
+  font-size: rem(40px);
+  text-align: center;
+  max-width: rem(280px);
+  margin-left: auto;
+  margin-right: auto;
+}

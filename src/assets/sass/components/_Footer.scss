@@ -1,0 +1,21 @@
+/*
+  Footer
+  ===============================================
+  Footer at bottom of most pages
+*/
+
+
+.Footer {
+  background-color: $color_mid_dark;
+  color: $color_light;
+  padding-top: rem(25px);
+  padding-bottom: rem(25px);
+}
+
+.Footer__content {
+  max-width: rem(960px);
+  font-size: rem(12px);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
