@@ -1,0 +1,31 @@
+.DownloadSection {
+  padding: rem(50px) 0;
+  text-align: center;
+}
+
+.DownloadSection__button {
+  appearance: none;
+  border: none;
+  display: inline-block;;
+  padding: rem(15px) rem(25px);
+  color: $color_light;
+  background-color: $color_dark;
+  border-radius: rem(5px);
+  margin-top: rem(30px);
+  transition: background-color 300ms ease;
+
+  &:link, &:visited {
+    text-decoration: none;
+  }
+
+  &:hover, &:active {
+    background-color: $color_mid_dark;
+  }
+
+  .DownloadSection__icon {
+    font-size: rem(30px);
+    vertical-align: middle;
+    margin-right: rem(10px);
+  }
+
+}

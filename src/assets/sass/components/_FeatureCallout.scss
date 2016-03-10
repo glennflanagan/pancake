@@ -5,19 +5,30 @@
 */
 
 
-.ThreeUp {
-
+.FeatureCallout {
   text-align: center;
 
+  &.FeatureCallout-wide {
+    @include make-sm-column(6);
+  }
+
+  &.FeatureCallout-narrow {
+    @include make-sm-column(4);
+  }
+
   //Only nested to overwite specificity of FontAwesome
-  .ThreeUp__icon {
+  .FeatureCallout__icon {
     font-size: rem(100px);
     color: $color_mid;
+
+    &.FeatureCallout__icon-dark {
+      color: $color_mid_dark;
+    }
   }
 
 }
 
-.ThreeUp__title {
+.FeatureCallout__title {
   font-size: rem(20px);
   margin-top: rem(20px);
   padding-top: rem(20px);
@@ -27,7 +38,7 @@
 }
 
 
-.ThreeUp__copy {
+.FeatureCallout__copy {
   font-size: rem(14px);
   line-height: rem(28px);
   padding: rem(20px);
