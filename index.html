@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>Pancake | Gulp starter project for flat HTML, CSS and JavaScript development.</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="build/assets/css/main.css" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- /Styles -->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="build/assets/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="build/assets/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="build/assets/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="build/assets/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="build/assets/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="build/assets/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="build/assets/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="build/assets/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="build/assets/img/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="build/assets/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="build/assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="build/assets/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="build/assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="build/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="build/assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="build/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="build/assets/img/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="build/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- /Favicons -->
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="Header">
+      <h1 class="Header__title">Pancake</h1> </header>
+    <!-- /Header -->
+    <main>
+      <section>
+        <div class="Grid">
+          <div>
+            <h2 class="Title">Gulp starter project for flat HTML, CSS and JavaScript development.</h2> <img class="HeroImage" src="build/assets/img/pancake.jpg" alt="Mmmm. Pancakes."> </div>
+          <div class="Grid__row">
+            <article class="FeatureCallout FeatureCallout-narrow"> <i class="FeatureCallout__icon fa fa-hand-paper-o"></i>
+              <h3 class="FeatureCallout__title">HTML</h3>
+              <div class="FeatureCallout__copy">
+                <p>Pancake uses <a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a> to compile the HTML files.</p>
+                <p>Nunjucks allows you to separate your flat HTML files out into several partial files and compiles them down into the build folder.</p>
+                <p>Managing your HTML files this way allows you to reuse code and saves on time.</p>
+              </div>
+            </article>
+            <article class="FeatureCallout FeatureCallout-narrow"> <i class="FeatureCallout__icon fa fa-hand-scissors-o"></i>
+              <h3 class="FeatureCallout__title">CSS</h3>
+              <div class="FeatureCallout__copy">
+                <p>CSS is generated from <a href="http://sass-lang.com/" target="_blank">SASS</a>.</p>
+                <p>Using SASS allows you to use functions and mixins in your styles for speed of developement. The SASS files also go through Autoprefixer so you never have to worry about remembering to add those pesky vendor prefixes.</p>
+                <p>Pancake is also set up with a version of the <a href="http://getbootstrap.com/css/#mixins" target="_blank">Bootstrap grid mixins</a> but this is completely optional, but doing a grid this way means nice clean HTML markup.</p>
+                <p>By default the project is set up using a version of the <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" target="_blank">Block Element Modifier methodology</a>, but you can style your SASS code however
+                  you like.</p>
+              </div>
+            </article>
+            <article class="FeatureCallout FeatureCallout-narrow"> <i class="FeatureCallout__icon fa fa-hand-rock-o"></i>
+              <h3 class="FeatureCallout__title">JavaScript</h3>
+              <div class="FeatureCallout__copy">
+                <p>Pancake's JavaScript is set up to combine all JavaScript files into one main file. It is also set up to use the <a href="http://www.raymondcamden.com/2013/05/13/JavaScript-Design-Patterns-The-Revealing-Module-Pattern/" target="_blank">Revealing Module Pattern</a>.
+                  This is a great way to split out your JavaScript code to make it easier to maintain.</p>
+                <p>Your JavaScript will also be <a href="http://jshint.com/" target="_blank">run through JSHint</a> to make sure your code correct and clean. You'll also be notified immediately if you save a file with an error.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="ColourSection">
+        <div class="Grid">
+          <div class="Grid__row">
+            <article class="FeatureCallout FeatureCallout-wide"> <i class="FeatureCallout__icon FeatureCallout__icon-dark fa fa-hand-lizard-o"></i>
+              <h3 class="FeatureCallout__title">Images &amp; Fonts</h3>
+              <div class="FeatureCallout__copy">
+                <p>The Pancake setup also ensures all of your image and font files are kept up to date in the build folder.</p>
+                <p>There's nothing fancy here, it simply copies the files from the source folder into the build each time a new file is added or the gulp command is run.</p>
+              </div>
+            </article>
+            <article class="FeatureCallout FeatureCallout-wide"> <i class="FeatureCallout__icon FeatureCallout__icon-dark fa fa-hand-spock-o"></i>
+              <h3 class="FeatureCallout__title">Installation</h3>
+              <div class="FeatureCallout__copy">
+                <p> To get your project up and running with Pancake you'll need to have Node.js installed on your system. Once you have simply download the latest code form the GitHub repository, navigate to the folder in your terminal and enter the following:
+                  </p>
+                <p class="TerminalBlock"> $ npm install </p>
+                <p> This will install all of the project dependencies, including Gulp. Now you're ready to begin developing. Run gulp and you're away! </p>
+                <p class="TerminalBlock"> $ gulp </p>
+                <p> Pancake is simple a starter project to get up and running as soon as possible. From this point on it's your project and feel free to edit any of the files. Happy hacking! </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="Grid">
+          <div class="Grid__row">
+            <div class="DownloadSection">
+              <p>Download the code from GitHub</p>
+              <a href="https://github.com/glennflanagan/pancake" target="_blank" class="DownloadSection__button"> <i class="DownloadSection__icon fa fa-github"></i> Visit the GitHub page </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="Footer">
+      <div class="Footer__content">Software offered under the MIT Licence</div>
+    </footer>
+    <!-- /Footer -->
+    <!-- Scripts -->
+    <script type="text/javascript" src="build/assets/js/main.js"></script>
+    <!-- /Scripts -->
+  </body>
+
+</html>
